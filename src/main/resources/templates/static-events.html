@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DevOOPS</title>
+    <meta name="description" content="description">
+    <meta name="author" content="DevOOPS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <link href="plugins/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+    <link href="plugins/xcharts/xcharts.min.css" rel="stylesheet">
+    <link href="plugins/select2/select2.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/static-style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+    <script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="static-page">
+<!--Start Header-->
+<div id="screensaver">
+    <canvas id="canvas"></canvas>
+    <i class="fa fa-lock" id="screen_unlock"></i>
+</div>
+<div id="modalbox">
+    <div class="devoops-modal">
+        <div class="devoops-modal-header">
+            <div class="modal-header-name">
+                <span>Basic table</span>
+            </div>
+            <div class="box-icons">
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="devoops-modal-inner">
+        </div>
+        <div class="devoops-modal-bottom">
+        </div>
+    </div>
+</div>
+<header class="navbar">
+    <div class="container-fluid expanded-panel">
+        <div class="row">
+            <div id="logo" class="col-xs-12 col-sm-2">
+                <a href="http://r.qix.sx/monitor/static-war.html">iib.rockitizer</a>
+            </div>
+            <div id="top-panel" class="col-xs-12 col-sm-10">
+                <div class="visible-xs">
+                    <a href="#" class="show-sidebar">
+                        <i class="fa fa-bars"></i>
+                    </a></div>
+
+                <div class="static-top-menu">
+                    <a href="javascript:;" class="static-menu-icon"><i class="fa fa-bars"></i>Monitor</a>
+                    <ul>
+                        <li><a href="http://r.qix.sx/monitor/static-war.html"><span>War-Room</span></a></li>
+                        <li><a href="http://r.qix.sx/monitor/static-runtime.html"><span>Runtime-Monitor</span></a></li>
+                        <li><a href="http://r.qix.sx/monitor/static-events.html"  class="active"><span>Business-Monitor</span></a></li>
+                        <li><a href="#"><span>Infrastructure-Monitor</span></a></li>
+                    </ul>
+                </div>
+                <div class="top-panel-right ">
+                    <ul class="nav navbar-nav pull-right panel-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle account" data-toggle="dropdown">
+                                <div class="avatar">
+                                    <img src="img/avatar.jpg" class="img-rounded" alt="avatar" />
+                                </div>
+                                <i class="fa fa-angle-down pull-right"></i>
+                                <!--<div class="user-mini pull-right">
+                                    <span class="welcome">Welcome,</span>
+                                    <span>Jane Devoops</span>
+                                </div>-->
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-user"></i>
+                                        <span class="hidden-sm text">Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ajax/page_messages.html" class="ajax-link">
+                                        <i class="fa fa-envelope"></i>
+                                        <span class="hidden-sm text">Messages</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ajax/gallery_simple.html" class="ajax-link">
+                                        <i class="fa fa-picture-o"></i>
+                                        <span class="hidden-sm text">Albums</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ajax/calendar.html" class="ajax-link">
+                                        <i class="fa fa-tasks"></i>
+                                        <span class="hidden-sm text">Tasks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-cog"></i>
+                                        <span class="hidden-sm text">Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-power-off"></i>
+                                        <span class="hidden-sm text">Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="static-top-check pull-right">
+                        <a href="javascript:;" class="static-date-icon">
+                            <span class="fa fa-calendar txt-danger form-control-feedback"></span>
+                        </a>
+                        <div class="static-top-check pull-right">
+                            <a href="javascript:;" class="static-date-icon">
+                                <span class="fa fa-calendar txt-danger form-control-feedback"></span>
+                            </a>
+                            <div class="static-date-block pull-right">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group has-error has-feedback">
+                                        <div class="static-date-item ">
+                                            <label for="input_date0">From</label>
+                                            <div>
+                                                <input type="text" id="input_date0" class="form-control">
+                                                <span class="fa fa-calendar txt-danger form-control-feedback"></span>
+                                            </div>
+                                        </div>
+                                        <div class="static-date-item">
+                                            <label for="input_date1">To</label>
+                                            <div>
+                                                <input type="text" id="input_date1" class="form-control">
+                                                <span class="fa fa-calendar txt-danger form-control-feedback"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="checkbox-inline pull-right">
+                                <label>
+                                    <input type="checkbox"> Live
+                                    <i class="fa fa-square-o"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--End Header-->
+<!--Start Container-->
+<div id="main" class="container-fluid">
+    <div class="row">
+        <div id="sidebar-left" class="col-xs-2 col-sm-2">
+            <div id="search">
+                <input type="text" placeholder="search"/>
+                <a class="static-search-link" href="#">Go!</a>
+            </div>
+            <ul class="nav main-menu">
+                <li class="dropdown">
+                    <a href="#"  class="dropdown-toggle">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="hidden-xs">ASB</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG1</a></li>
+                                <li><a href="#">EG2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="hidden-xs">MBC</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG1</a></li>
+                                <li><a href="#">EG2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG3</a></li>
+                                <li><a href="#">EG4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="hidden-xs">ASVC</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG1</a></li>
+                                <li><a href="#">EG2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG3</a></li>
+                                <li><a href="#">EG4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="hidden-xs">ASPLM</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG1</a></li>
+                                <li><a href="#">EG2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG3</a></li>
+                                <li><a href="#">EG4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--Start Content-->
+        <div id="content" class="col-xs-12 col-sm-10">
+            <div class="preloader">
+                <img src="img/devoops_getdata.gif" class="devoops-getdata" alt="preloader"/>
+            </div>
+            <div id="static-content" class="static-content">
+                <!--Start Dashboard 2-->
+                <div class="row-fluid">
+                    <div id="dashboard_links" class="col-xs-12 col-sm-2 pull-right">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#" class="tab-link" id="overview">Overview</a></li>
+                            <li><a href="#" class="tab-link" id="volumes">SLA Violation<span class="badge red-badge">5</span></a></li>
+                            <li><a href="#" class="tab-link" id="alerts">Alerts <span class="badge red-badge">8</span></a></li>
+                        </ul>
+                    </div>
+                    <div id="dashboard_tabs" class="col-xs-12 col-sm-10">
+                        <!--Start Dashboard Tab 1-->
+                        <div id="dashboard-overview" class="row" style="visibility: visible; position: relative;">
+                            <div class="static-border">
+                                <h2>Business Monitor (Exceptions/SLAs violation/Stalls)</h2>
+                                <div class="static-graph">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart0" style="min-height: 200px;"></div>
+                                                    <div id="chart_div0"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart1" style="min-height: 200px;"></div>
+                                                    <div id="chart_div1"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart2" style="min-height: 200px;"></div>
+                                                    <div id="chart_div2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="static-border">
+                                <h2>Exception Monitor (MQ-/Timeout-/File-/...-Exception)</h2>
+                                <div class="static-graph">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart3" style="min-height: 200px;"></div>
+                                                    <div id="chart_div3"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart4" style="min-height: 200px;"></div>
+                                                    <div id="chart_div4"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart5" style="min-height: 200px;"></div>
+                                                    <div id="chart_div5"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="static-border">
+                                <h2>Problem by Busines-Indicator Monitor</h2>
+                                <div class="static-graph">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart6" style="min-height: 200px;"></div>
+                                                    <div id="chart_div6"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart7" style="min-height: 200px;"></div>
+                                                    <div id="chart_div7"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="box">
+                                                <div class="box-content">
+                                                    <div id="pie-chart8" style="min-height: 200px;"></div>
+                                                    <div id="chart_div8"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="static-block-border">
+                                <div class="static-table-title">SLA Violation</div>
+                                <div class="static-border">
+                                    <div class="static-table">
+                                        <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+                                            <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>Severity</th>
+                                                <th>Type</th>
+                                                <th>Source</th>
+                                                <th>Duration</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2016-10-12 12:34:56</td>
+                                                <td>Error</td>
+                                                <td>SLA</td>
+                                                <td>App: MBC | Broker: DFCZA1T | Flow: getCpdAuthenticationDataConnectedVehicle</td>
+                                                <td>SLA Stall: Execution Time for process 20 sec (warning 8, stall 12)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-13 15:23:45</td>
+                                                <td>Warning</td>
+                                                <td>SLA</td>
+                                                <td>APP:MBC | Broker: DFCZA1T | Node: EG3 | Flow: PersistCustomerWithContract</td>
+                                                <td>SLA Violation: Execution Time for process 10 sec (warning 8, stall 12)</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="static-block-border">
+                                <div class="static-table-title">Business Alerts</div>
+                                <div class="static-border">
+                                    <div class="static-table">
+                                        <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                                            <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>Severity</th>
+                                                <th>Type</th>
+                                                <th>Source</th>
+                                                <th>Details</th>
+                                                <th>Exception</th>
+                                                <th>Payload 10k</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2016-10-12 12:45:56</td>
+                                                <td>Error</td>
+                                                <td>Business</td>
+                                                <td>App: MBC | Broker: FGGHJJ | Flow ConnectedCarOrdering</td>
+                                                <td>MQException: The Queue is full</td>
+                                                <td>MQException: `Exception in thread "main" MQ 2085
+                                                    Caused by: java.lang.ClassNotFoundException: com.ibm.mq.MQException
+                                                    at java.net.URLClassLoader$1.run(Unknown Source)
+                                                    at java.security.AccessController.doPrivileged(Native Method)
+                                                    at java.net.URLClassLoader.findClass(Unknown Sou</td>
+                                                <td><u>Message.xml</u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-12 13:10:11</td>
+                                                <td>Error</td>
+                                                <td>Business</td>
+                                                <td>App: ASB  | Broker: ABCZAI | Node: EG5 | Flow: PersistCustomerWithContract</td>
+                                                <td>DatabaseException: Customername too long</td>
+                                                <td>MQException: `Exception in thread "main" MQ 2085
+                                                    Caused by: java.lang.ClassNotFoundException: com.ibm.mq.MQException
+                                                    at java.net.URLClassLoader$1.run(Unknown Source)
+                                                    at java.security.AccessController.doPrivileged(Native Method)
+                                                    at java.net.URLClassLoader.findClass(Unknown Sou</td>
+                                                <td><u>Message.xml</u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-13 15:56:32</td>
+                                                <td>Error</td>
+                                                <td>Business</td>
+                                                <td>App: MBC | Broker ABTLA1 | Flow TransportPartsAndOrder</td>
+                                                <td>ParsingException: UnrecognizedCharacter. BIP5657: Check your encoding</td>
+                                                <td>org.apache.ojb.broker.PBFactoryException: Borrow broker from
+                                                 pool
+                                                <td><u>Message.xml</u></td>
+                                            </tr>
+                                           <tr>
+                                                <td>2016-10-14 14:56:45</td>
+                                                <td>Error</td>
+                                                <td>Business</td>
+                                                <td>ASB  | Broker ABCZAI | Flow PersistCustomerWithContract</td>
+                                                <td>DatabaseException: Customername too long</td>
+                                                <td>MQException: `Exception in thread "main" MQ 2085
+                                                    Caused by: java.lang.ClassNotFoundException: com.ibm.mq.MQException
+                                                    at java.net.URLClassLoader$1.run(Unknown Source)
+                                                    at java.security.AccessController.doPrivileged(Native Method)
+                                                    at java.net.URLClassLoader.findClass(Unknown Sou</td>
+                                                <td><u>Message.xml</u></td>
+                                            </tr>                                                                                                                                    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Dashboard Tab 1-->
+                        <!--Start Dashboard Tab 2-->
+                        <div id="dashboard-volumes" class="row" style="visibility: hidden; position: absolute;">
+                            <div class="static-block-border">
+                                <div class="static-table-title">SLA Violation</div>
+                                <div class="static-border">
+                                    <div class="static-table">
+                                        <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+                                            <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>Severity</th>
+                                                <th>Type</th>
+                                                <th>Source</th>
+                                                <th>Duration</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2016-10-12 12:34:56</td>
+                                                <td>Error</td>
+                                                <td>SLA</td>
+                                                <td>App: MBC | Broker: DFCZA1T | Flow: getCpdAuthenticationDataConnectedVehicle</td>
+                                                <td>SLA Stall: Execution Time for process 20 sec (warning 8, stall 12)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-13 15:23:45</td>
+                                                <td>Warning</td>
+                                                <td>SLA</td>
+                                                <td>APP:MBC | Broker: DFCZA1T | Node: EG3 | Flow: PersistCustomerWithContract</td>
+                                                <td>SLA Violation: Execution Time for process 10 sec (warning 8, stall 12)</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Dashboard Tab 2-->
+                        <!--Start Dashboard Tab 3-->
+                        <div id="dashboard-alerts" class="row" style="width:100%; visibility: hidden; position: absolute;" >
+                        <div class="static-block-border">
+                                <div class="static-table-title">Business Alerts</div>
+                                <div class="static-border">
+                                    <div class="static-table">
+                                        <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                                            <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>Severity</th>
+                                                <th>Type</th>
+                                                <th>Source</th>
+                                                <th>Details</th>
+                                                <th>Exception</th>
+                                                <th>Payload 10k</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2016-10-12 12:45:56</td>
+                                                <td>Error</td>
+                                                <td>Business</td>
+                                                <td>App: MBC | Broker: FGGHJJ | Flow ConnectedCarOrdering</td>
+                                                <td>MQException: The Queue is full</td>
+                                                <td>MQException: `Exception in thread "main" MQ 2085
+                                                    Caused by: java.lang.ClassNotFoundException: com.ibm.mq.MQException
+                                                    at java.net.URLClassLoader$1.run(Unknown Source)
+                                                    at java.security.AccessController.doPrivileged(Native Method)
+                                                    at java.net.URLClassLoader.findClass(Unknown Sou</td>
+                                                <td><u>Message.xml</u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-12 13:10:11</td>
+                                                <td>Error</td>
+                                                <td>Business</td>
+                                                <td>App: ASB  | Broker: ABCZAI | Node: EG5 | Flow: PersistCustomerWithContract</td>
+                                                <td>DatabaseException: Customername too long</td>
+                                                <td>MQException: `Exception in thread "main" MQ 2085
+                                                    Caused by: java.lang.ClassNotFoundException: com.ibm.mq.MQException
+                                                    at java.net.URLClassLoader$1.run(Unknown Source)
+                                                    at java.security.AccessController.doPrivileged(Native Method)
+                                                    at java.net.URLClassLoader.findClass(Unknown Sou</td>
+                                                <td><u>Message.xml</u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-13 15:56:32</td>
+                                                <td>Error</td>
+                                                <td>Business</td>
+                                                <td>App: MBC | Broker ABTLA1 | Flow TransportPartsAndOrder</td>
+                                                <td>ParsingException: UnrecognizedCharacter. BIP5657: Check your encoding</td>
+                                                <td>org.apache.ojb.broker.PBFactoryException: Borrow broker from
+                                                 pool
+                                                <td><u>Message.xml</u></td>
+                                            </tr>
+                                           <tr>
+                                                <td>2016-10-14 14:56:45</td>
+                                                <td>Error</td>
+                                                <td>Business</td>
+                                                <td>ASB  | Broker ABCZAI | Flow PersistCustomerWithContract</td>
+                                                <td>DatabaseException: Customername too long</td>
+                                                <td>MQException: `Exception in thread "main" MQ 2085
+                                                    Caused by: java.lang.ClassNotFoundException: com.ibm.mq.MQException
+                                                    at java.net.URLClassLoader$1.run(Unknown Source)
+                                                    at java.security.AccessController.doPrivileged(Native Method)
+                                                    at java.net.URLClassLoader.findClass(Unknown Sou</td>
+                                                <td><u>Message.xml</u></td>
+                                            </tr>
+                                                                                                                                    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!--End Dashboard Tab 3-->
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--End Dashboard 2 -->
+                <div style="height: 40px;"></div>
+
+            </div>
+        </div>
+        <!--End Content-->
+    </div>
+</div>
+<!--End Container-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="http://code.jquery.com/jquery.js"></script>-->
+<script src="plugins/jquery/jquery-2.1.0.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/justified-gallery/jquery.justifiedgallery.min.js"></script>
+<script src="plugins/tinymce/tinymce.min.js"></script>
+<script src="plugins/tinymce/jquery.tinymce.min.js"></script>
+<!-- All functions for this theme + document.ready processing -->
+<script src="js/devoops.js"></script>
+
+<script>
+    DashboardTabChecker();
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart', 'line']});
+    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawCurveTypes);
+    function drawChart() {
+
+        var data1 = google.visualization.arrayToDataTable([
+            ['BusinessErrorType', 'Count'],
+            ['Business Exceptions: 23',     23],
+            ['SLA violations: 432',      432],
+            ['Stalls: 34',  34]
+        ]);
+        var data2 = google.visualization.arrayToDataTable([
+            ['BusinessErrorType', 'Count'],
+            ['Business Exceptions: 15',     15],
+            ['SLA violations: 200',      200],
+            ['Stalls: 18',  18]
+        ]);
+        var data3 = google.visualization.arrayToDataTable([
+            ['BusinessErrorType', 'Count'],
+            ['Business Exceptions: 8',    8],
+            ['SLA violations: 230',      230],
+            ['Stalls: 16',  16]
+        ]);
+
+
+        var data4 = google.visualization.arrayToDataTable([
+            ['ErrorType', 'Count'],
+            ['MQ Exceptions: 1565',     1565],
+            ['IO Exceptions: 450',      450],
+            ['HTTP Exceptions: 560',  560],
+            ['Timeouts: 240', 240]
+        ]);
+        var data5 = google.visualization.arrayToDataTable([
+            ['ErrorType', 'Count'],
+            ['MQ Exceptions: 725',     725],
+            ['IO Exceptions: 375',      375],
+            ['HTTP Exceptions: 460',  460],
+            ['Timeouts: 140', 140]
+        ]);
+        var data6 = google.visualization.arrayToDataTable([
+            ['ErrorType', 'Count'],
+            ['MQ Exceptions: 750',     750],
+            ['IO Exceptions: 125',      125],
+            ['HTTP Exceptions: 160',  160],
+            ['Timeouts: 100', 100]
+        ]);
+
+        var data7 = google.visualization.arrayToDataTable([
+            ['ErrorType', 'Count'],
+            ['DAIVB: 800',     800],
+            ['CPD: 423',      423],
+            ['Portal: 760',  760],
+            ['MBBank: 634', 134]
+        ]);
+        var data8 = google.visualization.arrayToDataTable([
+            ['ErrorType', 'Count'],
+            ['DAIVB: 532',     565],
+            ['CPD: 300',      323],
+            ['Portal: 260',  560],
+            ['MBBank: 0', 0]
+        ]);
+        var data9 = google.visualization.arrayToDataTable([
+            ['ErrorType', 'Count'],
+            ['DAIVB: 265',     265],
+            ['CPD: 123',      123],
+            ['Portal: 560',  560],
+            ['MBBank: 634', 634]
+        ]);
+
+        var options0 = {
+            title: 'Total'
+        };
+        var options1 = {
+            title: 'MBC'
+        };
+        var options2 = {
+            title: 'ASB'
+        };
+
+        var chart0 = new google.visualization.PieChart(document.getElementById('pie-chart0'));
+        var chart1 = new google.visualization.PieChart(document.getElementById('pie-chart1'));
+        var chart2 = new google.visualization.PieChart(document.getElementById('pie-chart2'));
+        var chart3 = new google.visualization.PieChart(document.getElementById('pie-chart3'));
+        var chart4 = new google.visualization.PieChart(document.getElementById('pie-chart4'));
+        var chart5 = new google.visualization.PieChart(document.getElementById('pie-chart5'));
+        var chart6 = new google.visualization.PieChart(document.getElementById('pie-chart6'));
+        var chart7 = new google.visualization.PieChart(document.getElementById('pie-chart7'));
+        var chart8 = new google.visualization.PieChart(document.getElementById('pie-chart8'));
+
+        chart0.draw(data1, options0);
+        chart1.draw(data2, options1);
+        chart2.draw(data3, options2);
+        chart3.draw(data4, options0);
+        chart4.draw(data5, options1);
+        chart5.draw(data6, options2);
+        chart6.draw(data7, options0);
+        chart7.draw(data8, options1);
+        chart8.draw(data9, options2);
+
+    };
+    function drawCurveTypes() {
+
+        var data1 = new google.visualization.DataTable();
+        data1.addColumn('date', 'Date');
+        data1.addColumn('number', 'Bus-Ex');
+        data1.addColumn('number', 'SLA');
+        data1.addColumn('number', 'Stalls');
+
+
+        data1.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 5, 20, 0 ],
+            [new Date(2016, 10, 12, 2, 4), 7, 40,  2 ],
+            [new Date(2016, 10, 13, 5, 30), 2, 33, 3 ],
+            [new Date(2016, 10, 13, 7, 20), 3, 44, 8],
+            [new Date(2016, 10, 13, 8, 40), 4, 67, 3 ],
+            [new Date(2016, 10, 13, 12,10), 1, 23, 7 ],
+            [new Date(2016, 10, 14, 6,7),   5, 10, 2 ],
+            [new Date(2016, 10, 14, 8,20),  0, 35, 4 ]
+            
+        ]);
+
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('date', 'Date');
+        data2.addColumn('number', 'Bus-Ex');
+        data2.addColumn('number', 'SLA');
+        data2.addColumn('number', 'Stalls');
+
+        data2.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 1, 20, 0 ],
+            [new Date(2016, 10, 12, 2, 4), 3, 10,  2 ],
+            [new Date(2016, 10, 13, 5, 30), 1, 23, 1 ],
+            [new Date(2016, 10, 13, 7, 20), 3, 24, 3],
+            [new Date(2016, 10, 13, 8, 40), 7, 17, 0 ],
+            [new Date(2016, 10, 13, 12,10), 1, 43, 4 ],
+            [new Date(2016, 10, 14, 6,7),   0, 10, 2 ],
+            [new Date(2016, 10, 14, 8,20),  0, 5, 4 ]
+            
+        ]);
+
+        var data3 = new google.visualization.DataTable();
+        data3.addColumn('date', 'Date');
+        data3.addColumn('number', 'Bus-Ex');
+        data3.addColumn('number', 'SLA');
+        data3.addColumn('number', 'Stalls');
+
+        data3.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 2, 12, 0 ],
+            [new Date(2016, 10, 12, 2, 4), 3, 10,  3 ],
+            [new Date(2016, 10, 13, 5, 30), 0, 17, 0 ],
+            [new Date(2016, 10, 13, 7, 20), 0, 4, 2],
+            [new Date(2016, 10, 13, 8, 40), 0, 23, 7 ],
+            [new Date(2016, 10, 13, 12,10), 4, 23, 3 ],
+            [new Date(2016, 10, 14, 6,7),   6, 4, 0 ],
+            [new Date(2016, 10, 14, 8,20),  0, 5, 0 ]
+            
+        ]);
+
+        var data4 = new google.visualization.DataTable();
+        data4.addColumn('date', 'Date');
+        data4.addColumn('number', 'MQ-Ex');
+        data4.addColumn('number', 'Run-Ex');
+        data4.addColumn('number', 'Bus-Ex');
+        data4.addColumn('number', 'Stalls');
+
+        data4.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 34, 23, 45, 5 ],
+            [new Date(2016, 10, 12, 2, 4), 24, 23, 65, 6 ],
+            [new Date(2016, 10, 13, 5, 30), 14, 13, 25, 2 ],
+            [new Date(2016, 10, 13, 7, 20), 54, 4, 31, 4 ],
+            [new Date(2016, 10, 13, 8, 40), 74, 23, 10, 5 ],
+            [new Date(2016, 10, 13, 12, 10), 34, 23, 17, 6 ],
+            [new Date(2016, 10, 14, 6,  7),   34, 11, 37, 8 ],
+            [new Date(2016, 10, 14, 8, 20),  31, 23, 45, 4 ]
+            
+        ]);
+
+
+        var data5 = new google.visualization.DataTable();
+        data5.addColumn('date', 'Date');
+        data5.addColumn('number', 'MQ-Ex');
+        data5.addColumn('number', 'Run-Ex');
+        data5.addColumn('number', 'Bus-Ex');
+        data5.addColumn('number', 'Stalls');
+
+        data5.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 20, 13, 20, 3 ],
+            [new Date(2016, 10, 12, 2, 4), 18, 23, 50, 3 ],
+            [new Date(2016, 10, 13, 5, 30), 12, 13, 13, 1 ],
+            [new Date(2016, 10, 13, 7, 20), 40, 4, 17, 2],
+            [new Date(2016, 10, 13, 8, 40), 60, 23, 10, 4 ],
+            [new Date(2016, 10, 13, 12,10), 24, 23, 10, 3 ],
+            [new Date(2016, 10, 14, 6,7),   24, 11, 22, 7 ],
+            [new Date(2016, 10, 14, 8,20),  11, 23, 12, 2 ]
+            
+        ]);
+
+        var data6 = new google.visualization.DataTable();
+        data6.addColumn('date', 'Date');
+        data6.addColumn('number', 'MQ-Ex');
+        data6.addColumn('number', 'Run-Ex');
+        data6.addColumn('number', 'Bus-Ex');
+        data6.addColumn('number', 'Stalls');
+
+        data6.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 10, 6, 2, 1 ],
+            [new Date(2016, 10, 12, 2, 4), 24, 23, 15, 2 ],
+            [new Date(2016, 10, 13, 5, 30), 14, 13, 5, 1  ],
+            [new Date(2016, 10, 13, 7, 20), 54, 4, 7, 2 ],
+            [new Date(2016, 10, 13, 8, 40), 74, 23, 2, 1 ],
+            [new Date(2016, 10, 13, 12,10), 34, 23, 10, 2 ],
+            [new Date(2016, 10, 14, 6,7),   34, 11, 7,3 ],
+            [new Date(2016, 10, 14, 8,20),  31, 23, 5 , 1  ]
+            
+        ]);
+        
+        data6.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 34, 23, 45, 5 ],
+            [new Date(2016, 10, 12, 2, 4), 24, 23, 65, 6 ],
+            [new Date(2016, 10, 13, 5, 30), 14, 13, 25, 2 ],
+            [new Date(2016, 10, 13, 7, 20), 54, 4, 31, 4 ],
+            [new Date(2016, 10, 13, 8, 40), 74, 23, 10, 5 ],
+            [new Date(2016, 10, 13, 12, 10), 34, 23, 17, 6 ],
+            [new Date(2016, 10, 14, 6,  7),   34, 11, 37, 8 ],
+            [new Date(2016, 10, 14, 8, 20),  31, 23, 45, 4 ]
+            
+        ]);
+
+
+        var data7 = new google.visualization.DataTable();
+        data7.addColumn('date', 'Date');
+        data7.addColumn('number', 'MQ-Ex');
+        data7.addColumn('number', 'Run-Ex');
+        data7.addColumn('number', 'Bus-Ex');
+        data7.addColumn('number', 'Stalls');
+
+        data7.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 20, 13, 20, 3 ],
+            [new Date(2016, 10, 12, 2, 4), 18, 23, 50, 3 ],
+            [new Date(2016, 10, 13, 5, 30), 12, 13, 13, 1 ],
+            [new Date(2016, 10, 13, 7, 20), 40, 4, 17, 2],
+            [new Date(2016, 10, 13, 8, 40), 60, 23, 10, 4 ],
+            [new Date(2016, 10, 13, 12,10), 24, 23, 10, 3 ],
+            [new Date(2016, 10, 14, 6,7),   24, 11, 22, 7 ],
+            [new Date(2016, 10, 14, 8,20),  11, 23, 12, 2 ]
+            
+        ]);
+
+        var data8 = new google.visualization.DataTable();
+        data8.addColumn('date', 'Date');
+        data8.addColumn('number', 'MQ-Ex');
+        data8.addColumn('number', 'Run-Ex');
+        data8.addColumn('number', 'Bus-Ex');
+        data8.addColumn('number', 'Stalls');
+
+        data8.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 10, 6, 2, 1 ],
+            [new Date(2016, 10, 12, 2, 4), 24, 23, 15, 2 ],
+            [new Date(2016, 10, 13, 5, 30), 14, 13, 5, 1  ],
+            [new Date(2016, 10, 13, 7, 20), 54, 4, 7, 2 ],
+            [new Date(2016, 10, 13, 8, 40), 74, 23, 2, 1 ],
+            [new Date(2016, 10, 13, 12,10), 34, 23, 10, 2 ],
+            [new Date(2016, 10, 14, 6,7),   34, 11, 7,3 ],
+            [new Date(2016, 10, 14, 8,20),  31, 23, 5 , 1  ]
+            
+        ]);
+
+        var data9 = new google.visualization.DataTable();
+        data9.addColumn('date', 'Date');
+        data9.addColumn('number', 'MQ-Ex');
+        data9.addColumn('number', 'Run-Ex');
+        data9.addColumn('number', 'Bus-Ex');
+        data9.addColumn('number', 'Stalls');
+
+        data9.addRows([
+            [new Date(2016, 10, 12, 1, 0 ), 10, 6, 2, 1 ],
+            [new Date(2016, 10, 12, 2, 4), 24, 23, 15, 2 ],
+            [new Date(2016, 10, 13, 5, 30), 14, 13, 5, 1  ],
+            [new Date(2016, 10, 13, 7, 20), 54, 4, 7, 2 ],
+            [new Date(2016, 10, 13, 8, 40), 74, 23, 2, 1 ],
+            [new Date(2016, 10, 13, 12,10), 34, 23, 10, 2 ],
+            [new Date(2016, 10, 14, 6,7),   34, 11, 7,3 ],
+            [new Date(2016, 10, 14, 8,20),  31, 23, 5 , 1  ]
+            
+        ]);
+
+
+       var options = {
+           hAxis: {
+              viewWindow: {
+                min: new Date(2016, 10, 12, 18),
+                max: new Date(2015, 10, 14, 1)
+              },
+              gridlines: {
+                count: -1,
+                units: {
+                  days: {format: ['MMM dd']},
+                  hours: {format: ['HH:mm', 'ha']},
+                }
+              },
+              minorGridlines: {
+                units: {
+                  hours: {format: ['hh:mm:ss a', 'ha']},
+                  minutes: {format: ['HH:mm a Z', ':mm']}
+                }
+              }
+            }
+
+        };
+
+
+   
+        var chart0 = new google.visualization.LineChart(document.getElementById('chart_div0'));
+        var chart1 = new google.visualization.LineChart(document.getElementById('chart_div1'));
+        var chart2 = new google.visualization.LineChart(document.getElementById('chart_div2'));
+        var chart3 = new google.visualization.LineChart(document.getElementById('chart_div3'));
+        var chart4 = new google.visualization.LineChart(document.getElementById('chart_div4'));
+        var chart5 = new google.visualization.LineChart(document.getElementById('chart_div5'));
+        var chart6 = new google.visualization.LineChart(document.getElementById('chart_div6'));
+        var chart7 = new google.visualization.LineChart(document.getElementById('chart_div7'));
+        var chart8 = new google.visualization.LineChart(document.getElementById('chart_div8'));
+        chart0.draw(data1);
+        chart1.draw(data2);
+        chart2.draw(data3);
+        chart3.draw(data4);
+        chart4.draw(data5);
+        chart5.draw(data6);
+        chart6.draw(data7);
+        chart7.draw(data8);
+        chart8.draw(data9);
+
+    };
+
+    var graphxChartsResize;
+    $(".box").resize(function(event){
+        event.preventDefault();
+        clearTimeout(graphxChartsResize);
+        graphxChartsResize = setTimeout(drawChart, 500);
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Initialize datepicker
+        $('#input_date0').datepicker({setDate: new Date()});
+        $('#input_date1').datepicker({setDate: new Date()});
+    });
+</script>
+<script type="text/javascript">
+    // Run Datables plugin and create 3 variants of settings
+    function AllTables(){
+        TestTable1();
+    }
+    $(document).ready(function() {
+        // Load Datatables and run plugin on tables
+        LoadDataTablesScripts(AllTables);
+        // Add Drag-n-Drop feature
+        WinMove();
+    });
+</script>
+<script>
+    $('.static-date-icon').on('click', function () {
+        $('.static-date-block').toggleClass('visible');
+    });
+    $('.static-menu-icon').on('click', function () {
+        $('.static-top-menu ul').toggleClass('visible');
+    });
+</script>
+</body>
+</html>

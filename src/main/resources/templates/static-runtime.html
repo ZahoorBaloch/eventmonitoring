@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>DevOOPS</title>
+		<meta name="description" content="description">
+		<meta name="author" content="DevOOPS">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
+		<link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+		<link href="plugins/fancybox/jquery.fancybox.css" rel="stylesheet">
+		<link href="plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+		<link href="plugins/xcharts/xcharts.min.css" rel="stylesheet">
+		<link href="plugins/select2/select2.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+        <link href="css/static-style.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+				<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+<body class="static-page">
+<!--Start Header-->
+<div id="screensaver">
+	<canvas id="canvas"></canvas>
+	<i class="fa fa-lock" id="screen_unlock"></i>
+</div>
+<div id="modalbox">
+	<div class="devoops-modal">
+		<div class="devoops-modal-header">
+			<div class="modal-header-name">
+				<span>Basic table</span>
+			</div>
+			<div class="box-icons">
+				<a class="close-link">
+					<i class="fa fa-times"></i>
+				</a>
+			</div>
+		</div>
+		<div class="devoops-modal-inner">
+		</div>
+		<div class="devoops-modal-bottom">
+		</div>
+	</div>
+</div>
+<header class="navbar">
+	<div class="container-fluid expanded-panel">
+		<div class="row">
+			<div id="logo" class="col-xs-12 col-sm-2">
+                <a href="http://r.qix.sx/monitor/static-war.html">iib.rockitizer</a>
+			</div>
+			<div id="top-panel" class="col-xs-12 col-sm-10">
+                <div class="visible-xs">
+                    <a href="#" class="show-sidebar">
+                        <i class="fa fa-bars"></i>
+                    </a></div>
+
+                <div class="static-top-menu">
+                    <a href="javascript:;" class="static-menu-icon"><i class="fa fa-bars"></i>Monitor</a>
+                    <ul>
+                        <li><a href="http://r.qix.sx/monitor/static-war.html"><span>War-Room</span></a></li>
+                        <li><a href="http://r.qix.sx/monitor/static-runtime.html" class="active"><span>Runtime-Monitor</span></a></li>
+                        <li><a href="http://r.qix.sx/monitor/static-events.html"><span>Business-Monitor</span></a></li>
+                        <li><a href="#"><span>Infrastructure-Monitor</span></a></li>
+                    </ul>
+                </div>
+                <div class="top-panel-right ">
+                    <ul class="nav navbar-nav pull-right panel-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle account" data-toggle="dropdown">
+                                <div class="avatar">
+                                    <img src="img/avatar.jpg" class="img-rounded" alt="avatar" />
+                                </div>
+                                <i class="fa fa-angle-down pull-right"></i>
+                                <!--<div class="user-mini pull-right">
+                                    <span class="welcome">Welcome,</span>
+                                    <span>Jane Devoops</span>
+                                </div>-->
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-user"></i>
+                                        <span class="hidden-sm text">Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ajax/page_messages.html" class="ajax-link">
+                                        <i class="fa fa-envelope"></i>
+                                        <span class="hidden-sm text">Messages</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ajax/gallery_simple.html" class="ajax-link">
+                                        <i class="fa fa-picture-o"></i>
+                                        <span class="hidden-sm text">Albums</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ajax/calendar.html" class="ajax-link">
+                                        <i class="fa fa-tasks"></i>
+                                        <span class="hidden-sm text">Tasks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-cog"></i>
+                                        <span class="hidden-sm text">Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-power-off"></i>
+                                        <span class="hidden-sm text">Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="static-top-check pull-right">
+                        <a href="javascript:;" class="static-date-icon">
+                            <span class="fa fa-calendar txt-danger form-control-feedback"></span>
+                        </a>
+                        <div class="static-top-check pull-right">
+                            <a href="javascript:;" class="static-date-icon">
+                                <span class="fa fa-calendar txt-danger form-control-feedback"></span>
+                            </a>
+                            <div class="static-date-block pull-right">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group has-error has-feedback">
+                                        <div class="static-date-item ">
+                                            <label for="input_date0">From</label>
+                                            <div>
+                                                <input type="text" id="input_date0" class="form-control">
+                                                <span class="fa fa-calendar txt-danger form-control-feedback"></span>
+                                            </div>
+                                        </div>
+                                        <div class="static-date-item">
+                                            <label for="input_date1">To</label>
+                                            <div>
+                                                <input type="text" id="input_date1" class="form-control">
+                                                <span class="fa fa-calendar txt-danger form-control-feedback"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="checkbox-inline pull-right">
+                                <label>
+                                    <input type="checkbox"> Live
+                                    <i class="fa fa-square-o"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<!--End Header-->
+<!--Start Container-->
+<div id="main" class="container-fluid">
+	<div class="row">
+		<div id="sidebar-left" class="col-xs-2 col-sm-2">
+            <div id="search">
+                <input type="text" placeholder="search"/>
+                <a class="static-search-link" href="#">Go!</a>
+            </div>
+			<ul class="nav main-menu">
+                <li class="dropdown">
+                    <a href="#"  class="dropdown-toggle">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="hidden-xs">ASB</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG1</a></li>
+                                <li><a href="#">EG2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle">
+                        <i class="fa fa-plus-square"></i>
+						 <span class="hidden-xs">MBC</span>
+					</a>
+					<ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG1</a></li>
+                                <li><a href="#">EG2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG3</a></li>
+                                <li><a href="#">EG4</a></li>
+                            </ul>
+                        </li>
+					</ul>
+				</li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-plus-square"></i>
+                         <span class="hidden-xs">ASPLM</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG1</a></li>
+                                <li><a href="#">EG2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG3</a></li>
+                                <li><a href="#">EG4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-plus-square"></i>
+                         <span class="hidden-xs">ASVC</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG1</a></li>
+                                <li><a href="#">EG2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="hidden-xs">Broker</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EG3</a></li>
+                                <li><a href="#">EG4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+			</ul>
+		</div>
+		<!--Start Content-->
+		<div id="content" class="col-xs-12 col-sm-10">
+			<div class="preloader">
+				<img src="img/devoops_getdata.gif" class="devoops-getdata" alt="preloader"/>
+			</div>
+            <div id="static-content" class="static-content">
+                <!--Start Dashboard 2-->
+                <div class="row-fluid">
+                    <div id="dashboard_links" class="col-xs-12 col-sm-2 pull-right">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#" class="tab-link" id="overview">Overview</a></li>
+                            <li><a href="#" class="tab-link" id="runtime">Runtime-Alerts<span class="badge">3</span></a></li>
+                            <li><a href="#" class="tab-link" id="configuration">Configuration-Alerts <span class="badge">4</span></a></li>
+                            
+                        </ul>
+                    </div>
+                    <div id="dashboard_tabs" class="col-xs-12 col-sm-10">
+                        <!--Start Dashboard Tab 1-->
+                        <div id="dashboard-overview" class="row" style="visibility: visible; position: relative;">
+                            <div class="static-border">
+                                <h2>Runtime Status</h2>
+                                <div class="static-graph" id="ow-summary">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4 class="page-header">Total</h4>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Broker<i class="fa fa-circle status-k status-ok"></i><b>20/20 OK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Applications<i class="fa fa-circle status-k status-nok"></i><b>117/120 NOK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">EGs<i class="fa fa-circle status-k status-ok"></i><b>70/70 OK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Flows<i class="fa fa-circle status-k status-nok"></i><b>700/730 NOK</b></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4 class="page-header">MBC</h4>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Broker<i class="fa fa-circle status-k status-ok"></i><b>15/15 OK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Applications<i class="fa fa-circle status-k status-nok"></i><b>70/65 NOK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">EGs<i class="fa fa-circle status-k status-ok"></i><b>56/56 OK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Flows<i class="fa fa-circle status-k status-nok"></i><b>550/530 NOK</b></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4 class="page-header">ASB</h4>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Broker<i class="fa fa-circle status-k status-ok"></i><b>5/5 OK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Applications<i class="fa fa-circle status-k status-nok"></i><b>47/45 NOK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">EGs<i class="fa fa-circle status-k status-ok"></i><b>14/14 OK</b></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">Flows<i class="fa fa-circle status-k status-nok"></i><b>170/164 NOK</b></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+
+                                <!--<h2>Runtime Status</h2>-->
+                                <!--<div class="static-graph">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-sm-12 col-md-4">-->
+                                            <!--<div class="box">-->
+                                                <!--<div class="box-content">-->
+                                                            <!--<b>Total:</b>-->
+                                                            <!--Broker       20/20 OK-->
+                                                            <!--Applications 117/120 NOK-->
+                                                            <!--EGs          70/70 OK-->
+                                                            <!--Flows        700/730 NOK-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="col-sm-12 col-md-4">-->
+                                            <!--<div class="box">-->
+                                                <!--<div class="box-content">-->
+                                                            <!--<b>MBC:</b>-->
+                                                            <!--Broker       15/15 OK-->
+                                                            <!--Applications 70/65 NOK-->
+                                                            <!--EGs          56/56 OK-->
+                                                            <!--Flows        550/530 NOK-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="col-sm-12 col-md-4">-->
+                                            <!--<div class="box">-->
+                                                <!--<div class="box-content">-->
+                                                            <!--<b>ASB:</b>-->
+                                                            <!--Broker       5/5 OK-->
+                                                            <!--Applications 47/45 NOK-->
+                                                            <!--EGs          14/14 OK-->
+                                                            <!--Flows        170/164 NOK-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="static-block-border">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+
+                                        <div class="panel-heading" role="tab" id="headingBroker">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBroker" aria-expanded="true" aria-controls="collapseBroker">
+                                                    <b>AZBCD2I</b> <i>(Statistics: enabled, Brokerwide-Listener:7801, Keystore: \/MQHA/keystore...)</i>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="panel-heading" role="tab" id="headingEG1">
+                                            <h4 class="panel-title">
+                                                <a class="colapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEG1" aria-expanded="false" aria-controls="collapseEG1">
+                                                    <b>EG1</b> <i>(Statistics: enabled, Embedded-Listener:7802, Keystore: \/MQHA/keystore...)</i>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="panel-heading" role="tab" id="headingEG2">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEG2" aria-expanded="true" aria-controls="collapseEG2">
+                                                    <b>EG2</b> <i>(Statistics: enabled, Embedded-Listener:7803, Keystore: \/MQHA/keystore...)</i>
+                                                </a>
+                                            </h4>
+                                        </div>
+
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <b>MbConnectedVehicleApp</b> <i>(Version: 233.2445 Deployed: 23.09.2016)</i>
+                                                </a>
+                                            </h4>
+                                        </div>
+
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                    <b>com.daimler.mbconnect.daivb.PersistCustomerWithContract</b>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <table class="table">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>MqOutput.queueName</td>
+                                                        <td>XTGH.NACOS.SICOS.01</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>WebServiceURL</td>
+                                                        <td>https://daivb.schlag.mich.tot.de</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>httpOut.Certificate.Alias</td>
+                                                        <td>b2b.cert</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Retarder_MQIn.queueName</td>
+                                                        <td>XFS.UPPS.BR.INT.RETARDER</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>LoggingOK.log4jConfigFile</td>
+                                                        <td>\config\brokerlog.log</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>topMessageFlow.hostName</td>
+                                                        <td>xftsi05.broker.dcw.com</td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <b>com.ibm.broker.emon.MontoringFlow</b>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <table class="table">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>SoapInput#URL</td>
+                                                        <td>http://partner.com/getPartner</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>msHttpLEASRequest_SUB.omsHttpTargetDelfin_Udp</td>
+                                                        <td>https://scan.sst.mycompany.com</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>ErrorMqOutput.queueName</td>
+                                                        <td>XTGH.PARTNER.ERRROR.01</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>MqOutput.queueName</td>
+                                                        <td>XTGH.OS.COS.01</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFoe">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
+                                                    <b>om.daimler.fs.ip.common.config.configurationinitializer</b>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFor" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFor">
+                                            <div class="panel-body">
+                                                <table class="table">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>FilIn.configPath</td>
+                                                        <td>\config\brokerlog.log</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>LoggingOK.log4jConfigFile</td>
+                                                        <td>\config\brokerlog.log</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>topMessageFlow.hostName</td>
+                                                        <td>xftsi05.broker.dcw.com</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+
+                            <div class="static-block-border">
+                                <div class="static-table-title">Runtime-Alerts</div>
+                                <div class="static-border">
+                                    <div class="static-table">
+                                        <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                                           <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>Severity</th>
+                                                <th>Type</th>
+                                                <th>Source</th>
+                                                <th>Details</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2016-10-12 12:48:11</td>
+                                                <td>Critical</td>
+                                                <td>Runtime</td>
+                                                <td>App: ASB | Broker: TZGHJJ</td>
+                                                <td>EG4 is down</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-14 18:26:15</td>
+                                                <td>Error</td>
+                                                <td>Runtime</td>
+                                                <td>ASB  | Broker ABCZAI | Flow PersistCustomerWithContract</td>
+                                                <td>Flow is down PersistCustomerWithContract</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="static-block-border">
+                                <div class="static-table-title">Configuration-Alerts</div>
+                                <div class="static-border">
+                                    <div class="static-table">
+                                        <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+                                           <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>Severity</th>
+                                                <th>Type</th>
+                                                <th>Source</th>
+                                                <th>Details</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2016-10-12 12:50:23</td>
+                                                <td>Warning</td>
+                                                <td>Configuration</td>
+                                                <td>App: ASB  | Broker: ABCZAI | Node: EG4 | Flow: getVehcleAndParts </td>
+                                                <td>WebserviceURL has been changed to "https://dax.company.de/webservice" (Watchdog "https://daimler.com/partsService")</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-13 16:56:45</td>
+                                                <td>Warning</td>
+                                                <td>Configuration</td>
+                                                <td>App: MBC  | Broker: ABCZAI | Node: EG1 | Flow: getVehcleAndParts </td>
+                                                <td>CertificateAlias set to null  (Watchdog "B2BCert")</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-15 11:23:42</td>
+                                                <td>Warning</td>
+                                                <td>Configuration</td>
+                                                <td>ASB  | Broker ABCZAI </td>
+                                                <td>Embedded Listener is disabled for SOAPNodes (Watchdog "enabled")</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                        </div></div>
+                        <!--End Dashboard Tab 1-->
+                        <!--Start Dashboard Tab 2-->
+                        <div id="dashboard-runtime" class="row" style="visibility: hidden; position: absolute;">
+                            <div class="static-block-border">
+                                <div class="static-table-title">Runtime-Alerts</div>
+                                <div class="static-border">
+                                    <div class="static-table">
+                                        <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                                           <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>Severity</th>
+                                                <th>Type</th>
+                                                <th>Source</th>
+                                                <th>Details</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2016-10-12 12:48:11</td>
+                                                <td>Critical</td>
+                                                <td>Runtime</td>
+                                                <td>App: ASB | Broker: TZGHJJ</td>
+                                                <td>EG4 is down</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2016-10-14 18:26:15</td>
+                                                <td>Error</td>
+                                                <td>Runtime</td>
+                                                <td>ASB  | Broker ABCZAI | Flow PersistCustomerWithContract</td>
+                                                <td>Flow is down PersistCustomerWithContract</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!--End Dashboard Tab 2-->
+                        <!--Start Dashboard Tab 3-->
+                        <div id="dashboard-configuration" class="row" style="width:100%; visibility: hidden; position: absolute;" >
+                          <div class="static-block-border">
+                                    <div class="static-table-title">Configuration-Alerts</div>
+                                    <div class="static-border">
+                                        <div class="static-table">
+                                            <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+                                               <thead>
+                                                <tr>
+                                                    <th>Timestamp</th>
+                                                    <th>Severity</th>
+                                                    <th>Type</th>
+                                                    <th>Source</th>
+                                                    <th>Details</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>2016-10-12 12:50:23</td>
+                                                    <td>Warning</td>
+                                                    <td>Configuration</td>
+                                                    <td>App: ASB  | Broker: ABCZAI | Node: EG4 | Flow: getVehcleAndParts </td>
+                                                    <td>WebserviceURL has been changed to "https://dax.company.de/webservice" (Watchdog "https://daimler.com/partsService")</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2016-10-13 16:56:45</td>
+                                                    <td>Warning</td>
+                                                    <td>Configuration</td>
+                                                    <td>App: MBC  | Broker: ABCZAI | Node: EG1 | Flow: getVehcleAndParts </td>
+                                                    <td>CertificateAlias set to null  (Watchdog "B2BCert")</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2016-10-15 11:23:42</td>
+                                                    <td>Warning</td>
+                                                    <td>Configuration</td>
+                                                    <td>ASB  | Broker ABCZAI </td>
+                                                    <td>Embedded Listener is disabled for SOAPNodes (Watchdog "enabled")</td>
+                                                </tr>
+                                            </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <!--End Dashboard Tab 3-->
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--End Dashboard 2 -->
+                <div style="height: 40px;"></div>
+
+            </div>
+		</div>
+		<!--End Content-->
+	</div>
+</div>
+<!--End Container-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="http://code.jquery.com/jquery.js"></script>-->
+<script src="plugins/jquery/jquery-2.1.0.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/justified-gallery/jquery.justifiedgallery.min.js"></script>
+<script src="plugins/tinymce/tinymce.min.js"></script>
+<script src="plugins/tinymce/jquery.tinymce.min.js"></script>
+<!-- All functions for this theme + document.ready processing -->
+<script src="js/devoops.js"></script>
+
+<script>
+    DashboardTabChecker();
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        // Initialize datepicker
+        $('#input_date0').datepicker({setDate: new Date()});
+        $('#input_date1').datepicker({setDate: new Date()});
+    });
+</script>
+<script type="text/javascript">
+    // Run Datables plugin and create 3 variants of settings
+    function AllTables(){
+        TestTable1();
+    }
+    $(document).ready(function() {
+        // Load Datatables and run plugin on tables
+        LoadDataTablesScripts(AllTables);
+        // Add Drag-n-Drop feature
+        WinMove();
+    });
+</script>
+<script>
+    $('.static-date-icon').on('click', function () {
+        $('.static-date-block').toggleClass('visible');
+    });
+    $('.static-menu-icon').on('click', function () {
+        $('.static-top-menu ul').toggleClass('visible');
+    });
+</script>
+</body>
+</html>
